@@ -1,28 +1,24 @@
+<!-- resources/views/departments/edit.blade.php -->
 @extends('admin.app')
 
 @section('content')
 <div class="container">
-    <h3>Edit User</h3>
-    <form action="{{ route('users.update', $user->id) }}" method="POST">
+    <h1>Edit Departement</h1>
+    <form action="{{ route('departement.update', $departement->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+        <div class="form-group">
+            <label for="name">Departement Name</label>
+            <input type="text" name="name" class="form-control" value="{{ $departement->name }}" required>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+
+        <div class="form-group">
+            <label for="description">Departement Description</label>
+            <textarea name="description" class="form-control">{{ $departement->description }}</textarea>
         </div>
-        <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <select name="role" id="role" class="form-control" required>
-                @foreach($roles as $role)
-                    <option value="{{ $role->id }}" {{ $user->getRoleNames()[0] == $role->name ? 'selected' : '' }}>{{ $role->name }}</option>
-                @endforeach
-            </select>
-        </div>
+
         <button type="submit" class="btn btn-success">Update</button>
+        <a href="{{ route('departement.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection

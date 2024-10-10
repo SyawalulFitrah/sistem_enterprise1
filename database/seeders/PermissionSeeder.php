@@ -19,7 +19,12 @@ class PermissionSeeder extends Seeder
     Permission::updateORcreate(['name' => 'edit users']);
     Permission::updateORcreate(['name' => 'delete users']);
 
-    //permission untuk mengelola karyawan
+    
+    // Permission for managing departments
+    Permission::updateOrCreate(['name' => 'show departement']);
+    Permission::updateOrCreate(['name' => 'add departement']);
+    Permission::updateOrCreate(['name' => 'edit departement']);
+    Permission::updateOrCreate(['name' => 'delete departement']);
 
 
     }
