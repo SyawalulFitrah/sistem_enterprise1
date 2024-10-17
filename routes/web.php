@@ -1,15 +1,17 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DepartementController;
-use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\PayrollController;
+use App\Models\User;
+use App\Models\Department;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Models\Department;
-use App\Models\User;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LeaveController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DepartementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,10 @@ Route::resource('departments', DepartementController::class);
 Route::resource('employees', EmployeeController::class);
 
 Route::resource('payroll', PayrollController::class);
+
+Route::resource('leave', LeaveController::class);
+
+Route::resource('attendance', AttendanceController::class);
 
 
 // Auth routes (login, register, password reset, etc.)
